@@ -1,0 +1,462 @@
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #a29bfe;
+    --text-color: #ffffff;
+    --bg-color: #1a1a2e;
+    --card-bg-color: rgba(255, 255, 255, 0.05);
+    --navbar-bg-color: rgba(26, 26, 46, 0.8);
+    --card-text-color: #ffffff;
+}
+
+
+
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.light-mode {
+    --primary-color: #cf34d4;
+    --secondary-color: #fdbd33;
+    --text-color: #2d3436;
+    --bg-color: #f0f0f0;
+    --card-bg-color: rgba(255, 255, 255, 0.8);
+    --navbar-bg-color: rgba(240, 240, 240, 0.8);
+    --card-text-color: #2d3436;
+}
+
+.gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-family: "Archivo Black", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.navbar {
+    background-color: var(--navbar-bg-color);
+    backdrop-filter: blur(10px);
+    transition: background-color 0.3s ease;
+}
+
+
+
+
+.navbar-dark .navbar-nav .nav-link {
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--primary-color);
+}
+
+
+.mode-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+}
+
+.mode-toggle {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.mode-label {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #2d3436;
+    transition: .4s;
+    border-radius: 30px;
+}
+
+.mode-label:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+.mode-toggle:checked + .mode-label {
+    background-color: var(--primary-color);
+}
+
+.mode-toggle:checked + .mode-label:before {
+    transform: translateX(30px);
+}
+
+.bi-moon-fill {
+    color: rgb(78, 78, 78);
+}
+
+.bi-sun-fill {
+    color: yellow;
+}
+
+.mode-label .bi-moon-fill,
+.mode-label .bi-sun-fill {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    transition: .4s;
+}
+
+.mode-label .bi-moon-fill {
+    left: 6px;
+    opacity: 1;
+}
+
+.mode-label .bi-sun-fill {
+    right: 6px;
+    opacity: 0;
+}
+
+.mode-toggle:checked + .mode-label .bi-moon-fill {
+    opacity: 0;
+}
+
+.mode-toggle:checked + .mode-label .bi-sun-fill {
+    opacity: 1;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.cta-button {
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
+}
+
+.pricing {
+    padding: 90px 0;
+}
+
+.pricing-card {
+    background-color: var(--card-bg-color);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.3s ease, color 0.3s ease;
+    width: 100%;
+    color: var(--card-text-color);
+    
+    
+}
+
+.pricing-card:hover {
+    
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+}
+
+.pricing-card.featured {
+    
+    box-shadow: 0 15px 40px rgba(108, 92, 231, 0.3);
+    border: 2px solid var(--primary-color);
+}
+
+.card-body {
+    cursor: pointer;
+    
+}
+
+
+::-webkit-scrollbar {
+    width: 12px; 
+    background-color: #f1f1f100; 
+}
+
+
+::-webkit-scrollbar-thumb {
+    background-color: #d3d0d0; 
+    border-radius: 10px; 
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555; 
+}
+
+
+.pricing-card .card-body {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    cursor: pointer;
+}
+
+.pricing-card .card-title {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.pricing-card .card-price {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+.pricing-card .card-price span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.feature-list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+    flex-grow: 1;
+}
+
+.feature-list li {
+    margin-bottom: 10px;
+}
+
+.feature-list i {
+    color: var(--primary-color);
+    margin-right: 10px;
+}
+
+.footer {
+    background-color: var(--navbar-bg-color);
+    color: var(--text-color);
+    padding: 50px 0 20px;
+    transition: background-color 0.3s ease;
+}
+
+.footer h5 {
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: var(--primary-color);
+}
+
+.social-icons {
+    font-size: 1.5rem;
+}
+
+.social-icons a {
+    margin-right: 15px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+.scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary-color);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    cursor: pointer;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, background-color 0.3s ease, visibility 0.3s ease;
+    border: none;
+    z-index: 1000;
+}
+
+.scroll-to-top:hover {
+    background-color: var(--secondary-color);
+}
+
+body.light-mode .navbar-brand,
+body.light-mode .navbar-nav .nav-link,
+body.light-mode .footer {
+    color: var(--text-color);
+}
+
+body.light-mode .gradient-text {
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+body.light-mode .pricing-card {
+    color: var(--card-text-color);
+}
+
+body.light-mode .footer a {
+    color: var(--text-color);
+}
+
+body.light-mode .footer a:hover {
+    color: var(--primary-color);
+}
+
+body.light-mode .navbar-brand {
+    color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+
+    .pricing-card {
+        margin-bottom: 30px;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .social-icons {
+        margin-top: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .pricing-card {
+        height: 100%;
+    }
+}
+
+.features {
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+}
+
+.feature-card {
+    background-color: var(--card-bg-color);
+    border: none;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(108, 92, 231, 0.2);
+}
+
+.feature-card .card-body {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.feature-icon {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.feature-card .card-title {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-card .card-text {
+    color: var(--text-color);
+
+}
+
+
+.btn {
+    background-color: rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    font-weight: bold;
+    transition: all ease 0.3s;
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+.btn:hover {
+    color:white;
+    background-color: black;
+    border: 2px solid white;
+}
+
+span {
+    color: var(--primary-color);
+    text-shadow: 0 1px 30px var(--secondary-color);
+}
